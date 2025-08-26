@@ -6,7 +6,7 @@ from datetime import datetime
 from smtplib import SMTP
 from email.message import EmailMessage
 import hashlib
-from random import choice
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "SECRET_KEY"
@@ -134,7 +134,7 @@ def post(id):
             db.session.commit()
             return redirect(url_for("post",id=id))
         else:
-            flash("You should login first")
+            flash("You should log in first")
             return redirect(url_for("login"))
     comments = Comment.query.filter_by(post_id=post.id).all()
 
@@ -280,7 +280,7 @@ def search():
     if post:
         return jsonify(post = to_dict(post))
     else :
-        return jsonify(error = {"Not Found":"There's no post with this title."})
+        return jsonify(error = {"Not Found": "There is no post with this title."})
 
 @app.route("/api/remove",methods=["GET","POST"])
 def remove():
@@ -291,8 +291,8 @@ def remove():
         if delet_post:
             db.session.delete(delet_post)
             db.session.commit()
-            return jsonify(message={"success":"you delet the post."})
-        return jsonify(message={"error":"there is something wrong."})
+            return jsonify(message={"success": "You deleted the post."})
+        return jsonify(message={"error": "There is something wrong."})
     
 if __name__ == '__main__':
     with app.app_context():

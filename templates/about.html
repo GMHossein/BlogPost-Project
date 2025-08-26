@@ -1,110 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
+{% include "head.html" %}
+{% include "header.html" %}
 
-  {% include "head.html" %}
-
-  <body>
-
-    {% include "Preloader.html" %} 
-
-    <!-- Header -->
-  {% include "header.html" %}
-
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="heading-page header-text">
-      <section class="page-heading">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="text-content">
-                <h4>about us</h4>
-                <h2>more about us!</h2>
-              </div>
-            </div>
+<!-- Banner Starts Here -->
+<div class="heading-page header-text">
+  <section class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-content">
+            <h4>About Us</h4>
+            <h2>More about us!</h2>
           </div>
         </div>
-      </section>
-    </div>
-    
-    <!-- Banner Ends Here -->
-
-
-    <section class="about-us">
-      <div class="container">
-      	
-        <div class="row">
-          <div class="col-lg-12">
-            <img src="{{ url_for('static', filename='images/about-us.jpg') }}" alt="">
-            <p>Please tell your friends about TemplateMo website. Thank you. You can browse through different categories of templates such asa eros orci vel neque.</p>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-lg-6">
-          <h4>Two-One Donec porttitor augue</h4>
-          	<p>Quisque bibendum cursus viverra. Mauris at ex ipsum. Aenean condimentum urna nisl, eget interdum ante euismod vel. Aliquam at metus sit amet nunc dapibus posuere.</p>
-          </div>
-          <div class="col-lg-6">
-          <h4>Two-Two Donec porttitor augue</h4>
-          	<p>Maecenas et metus nisl. Morbi ac interdum metus. Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-          <h4>1-03 Donec porttitor augue</h4>
-          	<p>Quisque bibendum cursus viverra. Mauris at ex ipsum. Aenean condimentum urna nisl, eget interdum ante euismod vel. Aliquam at metus sit amet nunc dapibus posuere.</p>
-          </div>
-          <div class="col-lg-4 col-md-6">
-          <h4>2-03 Donec porttitor augue</h4>
-          	<p>Maecenas et metus nisl. Morbi ac interdum metus. Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-          </div>
-          <div class="col-lg-4">
-          <h4>3-03 Donec porttitor augue</h4>
-          	<p>Maecenas et metus nisl. Morbi ac interdum metus. Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-          </div>
-        </div>
-        
-        
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-          <h4>01 Four Columns</h4>
-          	<p>Mauris at ex ipsum. Aenean condimentum urna nisl, eget interdum ante euismod vel. Aliquam at metus sit amet nunc dapibus posuere.</p>
-          </div>
-          <div class="col-lg-3 col-md-6">
-          <h4>02 Four Columns</h4>
-          	<p>Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-          </div>
-          <div class="col-lg-3 col-md-6">
-          <h4>03 Four Columns</h4>
-          	<p>Morbi ac interdum metus. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-          </div>
-          <div class="col-lg-3 col-md-6">
-          <h4>04 Four Columns</h4>
-          	<p>Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="social-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        
-        
       </div>
-    </section>
+    </div>
+  </section>
+</div>
+<!-- Banner Ends Here -->
 
-    
+<section class="about-us">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <img src="{{ url_for('static', filename='images/about-us.jpg') }}" alt="About Us Image">
+        <p>Explore our website and learn more about our mission and values. Share with your friends!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <h4>Our Mission</h4>
+        <p>We aim to deliver quality content with informative and engaging posts for our readers.</p>
+      </div>
+      <div class="col-lg-6">
+        <h4>Our Vision</h4>
+        <p>Creating a blog community where knowledge is shared and ideas are celebrated.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <h4>Feature 1</h4>
+        <p>Insightful and well-researched blog posts to keep you informed.</p>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h4>Feature 2</h4>
+        <p>User-friendly interface with easy navigation across topics.</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Feature 3</h4>
+        <p>Interactive community encouraging discussions and feedback.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="social-icons">
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-behance"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 {% include "footer.html" %}
-
-    {% include "script.html" %}
-
-  </body>
-</html>
+{% endblock %}
