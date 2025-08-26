@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include "head.html" %}
+
+  <body>
+
+    {% include "Preloader.html" %} 
+
+    <!-- Header -->
+    {% include "header.html" %}
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+      <section class="page-heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                <h4>Recent Posts</h4>
+                <h2>Our Recent Blog Entries</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Banner Ends Here -->
+
+
+
+    <section class="blog-posts grid-system">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="all-blog-posts">
+              <div class="row">
+
+
+                {% for post in posts: %}
+                <div class="col-lg-6">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+                      <img src="{{ post.image_url }}" alt="">
+                    </div>
+                    <div class="down-content">
+                      <span>{{ post.title }}</span>
+                      <a href="{{url_for('post',id=post.id)}}"><h4>{{ post.subtitle }}</h4></a>
+                      <ul class="post-info">
+                        <li><a href="#">{{ post.author.name }}</a></li>
+                        <li><a href="#">{{ post.date }}</a></li>
+                      </ul>
+                      {% if current_user.id == 1: %}
+                      <p>{{ post.discription }}.<a href="{{ url_for('delet_post',id=post.id) }}">❌</a></p>
+                      {% else: %}
+                      <p>{{ post.discription }}.</p>
+                      {% endif %}
+                      <div class="post-options">
+                        <div class="row">
+  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          {% include "navbar.html" %}
+        </div>
+      </div>
+    </section>
+
+    
+{% include "footer.html" %}
+
+
+    {% include "script.html" %}
+
+  </body>
+</html>

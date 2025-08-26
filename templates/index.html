@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "head.html" %}
+
+<body>
+
+  {% include "Preloader.html" %}
+
+  {% include "header.html" %}
+
+  <!-- Page Content -->
+  <!-- Banner Starts Here -->
+  <div class="main-banner header-text">
+    <div class="container-fluid">
+      <div class="owl-banner owl-carousel">
+        {% for post in posts: %}
+        <div class="item">
+          <img src="{{ post.image_url }}" alt="">
+          <div class="item-content">
+            <div class="main-content">
+              <div class="meta-category">
+                <span>{{ post.title }}</span>
+              </div>
+              <a href="{{url_for('post',id=post.id)}}">
+                <h4>{{ post.subtitle }}</h4>
+              </a>
+              <ul class="post-info">
+                <li><a href="#">{{ post.author.name }}</a></li>
+                <li><a href="#">{{ post.date }}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- Banner Ends Here -->
+
+  {% if current_user.id == 1: %}
+  <section class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-content">
+            <div class="row">
+              <div class="col-lg-8">
+                <span>Hossein's Blog</span>
+                <h4>Add new post for our blog!</h4>
+              </div>
+              <div class="col-lg-4">
+                <div class="main-button">
+                  <a rel="nofollow" href="{{url_for('make_post')}}" target="_parent">Add Now!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% else: %}
+  <section class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-content">
+            <div class="row">
+              <div class="col-lg-8">
+                <span>Hossein's Blog</span>
+                <h4>Hey welcom to our website {{ current_user.name }}</h4>
+              </div>
+              <div class="col-lg-4">
+                <div class="main-button">
+                  <a rel="nofollow" href="{{url_for('blog')}}" target="_parent">Let's See Our Post!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="blog-posts">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="all-blog-posts">
+            <div class="row">
+              {% for item in recent_posts: %}
+              <div class="col-lg-12">
+                <div class="blog-post">
+                  <div class="blog-thumb">
+                    <img src="{{ item.image_url }}" alt="">
+                  </div>
+                  <div class="down-content">
+                    <span>{{ item.title }}</span>
+                    <a href="{{url_for('post',id=item.id)}}">
+                      <h4>{{ item.subtitle }}</h4>
+                    </a>
+                    <ul class="post-info">
+                      <li><a href="#">{{ item.author.name }}</a></li>
+                      <li><a href="#">{{ item.date }}</a></li>
+                    </ul>
+                    {% if current_user.id == 1 :%}
+                    <p> {{item.discription }} <a href="{{ url_for('delet_post',id=item.id) }}">❌</a></p>
+                    {% else: %}
+                    <p> {{item.discription }}</p>
+                    {% endif %}
+                    <div class="post-options">
+                      <div class="row">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              <div class="col-lg-12">
+                <div class="main-button">
+                  <a href="{{url_for('blog')}}">View All Posts</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% include "navbar.html" %}
+      </div>
+    </div>
+  </section>
+
+
+  {% include "footer.html" %}
+
+  {% include "script.html" %}
+</body>
+
+</html>
